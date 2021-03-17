@@ -7,5 +7,4 @@ n = int(input())
 if b + g == n:
     print(1)
 else:
-    print( min(b,g,n, b+g - n) + 1)
-
+    print(min(b, g, n, b + g - n) + 1)

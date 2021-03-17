@@ -1,43 +1,40 @@
 #!/usr/local/bin/python3.4
-import pdb
+
+
 N = int(input())
 
-def poles(N):
 
-    South=0
-    North=1
-    East=2
-    West=3
-    NorthPole=0
-    SouthPole=20000
-    directions = [ "South" , "North" , "East" , "West" ]
+def poles(N_):
+
+    south = 0
+    north = 1
+    east = 2
+    west = 3
+    north_pole = 0
+    south_pole = 20000
+    directions = ["South", "North", "East", "West"]
 
     position = 0
-    for _ in range(N):
-        
-        steps, direction =  input().split()   
-        steps = int(steps)
-        
-        if ( direction ==  directions[East] or direction == directions[West]):
-            if (position != NorthPole and position != SouthPole):
-                continue
-            else:
-                return "NO" 
-        if direction == directions[South]:
-            if ( steps +  position > SouthPole):
-                return "NO"
-            else:
-                position+=steps
-        if direction == directions[North]:
-            if ( position - steps < NorthPole):
-                return "NO"
-            else:
-                position-=steps
-   
+    for _ in range(N_):
 
-    if position==NorthPole:
+        steps, direction = input().split()
+        steps = int(steps)
+
+        if direction in (directions[east],  direction == directions[west]):
+            if position in (north_pole, south_pole):
+                return "NO"
+        if direction == directions[south]:
+            if steps + position > south_pole:
+                return "NO"
+            position += steps
+        if direction == directions[north]:
+            if position - steps < north_pole:
+                return "NO"
+            position -= steps
+
+    if position == north_pole:
         return "YES"
-    else:
-        return "NO"
+    return "NO"
+
 
 print(poles(N))

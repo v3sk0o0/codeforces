@@ -1,16 +1,16 @@
+n, m = map(int, input().split())
 
-n, m = map(int , input().split())
 
-def isEqual(n,m):
-    if n > m:
+def is_equal(n_value: int, m_value: int) -> str:
+    if n_value > m_value:
         return "YES"
-    if n < m:
+    if n_value < m_value:
         return "NO"
-    if n == m:
-        return "NOPE"
+    return "NOPE"
 
-enemyball_words=set()
-powerball_words=set()
+
+enemyball_words = set()
+powerball_words = set()
 for _ in range(n):
     powerball_words.add(input().strip())
 
@@ -18,14 +18,11 @@ for _ in range(m):
     enemyball_words.add(input().strip())
 
 
-common_words = [ word for word in enemyball_words if word in powerball_words ]
+common_words = [word for word in enemyball_words if word in powerball_words]
 
-if "NOPE" != isEqual(n,m):
-    print ( isEqual(n,m) )
-elif  len(common_words) % 2 == 0:
-    print ("NO")
+if is_equal(n, m) != "NOPE":
+    print(is_equal(n, m))
+elif len(common_words) % 2 == 0:
+    print("NO")
 else:
-    print ("YES")
-    
-
-
+    print("YES")

@@ -1,25 +1,23 @@
-#http://codeforces.com/problemset/problem/735/D
-from math import *
+# http://codeforces.com/problemset/problem/735/D
+from math import ceil, sqrt
+
 
 def is_prime(a):
-    if (2==a):
+    if a == 2:
         return True
-    else:
-        return all(a % i for i in range(2, ceil(sqrt(a)+1)))
+    return all(a % i for i in range(2, ceil(sqrt(a) + 1)))
 
 
-number=int(input())
+number = int(input())
 
-def find_minimal_tax(number):
 
-    if ( number == 2 or is_prime(number)):
+def find_minimal_tax(number_):
+
+    if number_ == 2 or is_prime(number_):
         return 1
-    for i in range(2,number):
-        if number % i == 0 and is_prime(i):
-           return i
-    
-    
+    for i in range(2, number_):
+        if number_ % i == 0 and is_prime(i):
+            return i
 
-print (find_minimal_tax(number))
 
-    
+print(find_minimal_tax(number))
