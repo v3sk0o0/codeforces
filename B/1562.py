@@ -4,7 +4,7 @@ from math import ceil, sqrt
 
 
 def is_prime(a):
-    """ Modified a"""
+    """ Modified primer number for this specific task!"""
     if a == 1:
         return False
     if a == 2:
